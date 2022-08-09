@@ -157,7 +157,7 @@ if selected == "Loan Defaulting":
                 'pastDue_90':[due_90days],'Age':[age],'Emp_type':[empType],'Gender':[gender]}
                 data = pd.DataFrame.from_dict(data)
 
-                loaded_model2 = load_model('Loan_default/models/Default_model2')
+                loaded_model2 = load_model('data/Default_model2')
                 pred_data = predict_model(loaded_model2, data=data)
                 pred_data.rename(columns={"Label":"PredictedDefaulter","Score":"PredictionConfidence"},inplace=True)
 
@@ -204,7 +204,7 @@ if selected == "Loan Defaulting":
             if st.button('Submit'):
                 st.markdown("____")
                 st.subheader("Loan Default Prediction")
-                loaded_model = load_model("Loan_default/models/default_model")
+                loaded_model = load_model("data/default_model")
                 pred_df = predict_model(loaded_model, data=df)
                 pred_df.rename(columns={"Label":"PredictedDefaulter","Score":"PredictionConfidence"},inplace=True)
                 pred_df['Target'] = pred_df["PredictedDefaulter"]
@@ -297,7 +297,7 @@ if selected == "Churn Prediction":
                 'IsActiveMember':[isActive],'HasCrCard':[hasCrCard]}
                 data = pd.DataFrame.from_dict(data)
 
-                loaded_model3 = load_model('Churn/models/churn_model1')
+                loaded_model3 = load_model('data/churn_model1')
                 pred_data = predict_model(loaded_model3, data=data)
                 pred_data.rename(columns={"Label":"PredictedChurn","Score":"PredictionConfidence"},inplace=True)
 
@@ -344,7 +344,7 @@ if selected == "Churn Prediction":
             if st.button('Submit'):
                 st.markdown("____")
                 st.subheader("E-commerce Churn Prediction")
-                loaded_model = load_model("Churn/models/finance_churn_model2")
+                loaded_model = load_model("data/finance_churn_model2")
                 pred_df = predict_model(loaded_model, data=df)
                 pred_df.rename(columns={"Label":"PredictedChurn","Score":"PredictionConfidence"},inplace=True)
                 pred_df['Target'] = pred_df["PredictedChurn"]
