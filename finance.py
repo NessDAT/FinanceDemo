@@ -24,7 +24,7 @@ with st.sidebar:
     st.markdown("###")
     
 
-    st.markdown("<a href='https://vanessaattafynn-demo-demo-site-at0bqf.streamlitapp.com/'>\
+    st.markdown("<a href='https://datawaredemo.azurewebsites.net/'>\
             <button class='b1' style='background-color:#F35106;color:white; border:None;border-radius:10px;\
             padding:15px;min-height:15px;min-width: 80px;' type='button'>\
             Go Home  <i class='bi bi-box-arrow-up-right'></i></button></a>",unsafe_allow_html=True)
