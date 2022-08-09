@@ -343,7 +343,7 @@ if selected == "Churn Prediction":
 
             if st.button('Submit'):
                 st.markdown("____")
-                st.subheader("E-commerce Churn Prediction")
+                st.subheader("Churn Prediction")
                 loaded_model = load_model("data/finance_churn_model2")
                 pred_df = predict_model(loaded_model, data=df)
                 pred_df.rename(columns={"Label":"PredictedChurn","Score":"PredictionConfidence"},inplace=True)
