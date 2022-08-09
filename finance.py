@@ -83,7 +83,7 @@ if selected == "About":
 
     with col2:
         st.markdown("#")
-        st.image("images/money.png")
+        st.image("data/money.png")
 
     st.markdown("###")
     st.subheader("How Does Machine Learning In Finance Work?")
