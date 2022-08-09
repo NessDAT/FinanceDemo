@@ -65,7 +65,50 @@ def get_feature_importances_df(pycaret_pipeline, sample_df, n = 10):
 #------------------------------------------------------------------------------------------------------------------------
 if selected == "About":
     #st.image('images/about-header2.png')
-    st.subheader("About Page")
+    col1, col2= st.columns(2)
+
+    with col1:
+        st.subheader("Introduction")
+        st.markdown("<p style='text-align:justify;font-size:20px;font-family:helvetica;'> \
+                    In today’s era of digitization, staying updated on technological advancements is a \
+        necessity for businesses to both outsmart the competition and achieve desired business growth.\
+        The recent years have seen a rapid acceleration in the pace of disruptive technologies such as \
+        AI and ML in Finance due to improved software and hardware. The finance sector, specifically, has\
+         seen a steep rise in the use cases of machine learning applications to advance better outcomes \
+         for both consumers and businesses.</p>",
+                    unsafe_allow_html=True)
+
+        st.markdown("##")
+        st.markdown("##")
+
+    with col2:
+        st.markdown("#")
+        st.image("images/money.png")
+
+    st.markdown("###")
+    st.subheader("How Does Machine Learning In Finance Work?")
+    st.markdown("<p style='text-align:justify;font-size:20px;font-family:helvetica;'>Machine Learning works \
+        by extracting meaningful insights from raw sets of data \
+        and provides accurate results. This information is then used to solve complex and data-rich \
+        problems that are critical to the banking & finance sector. Further, machine learning algorithms \
+        are equipped to learn from data, processes, and techniques used to find different insights.</p>",
+        unsafe_allow_html=True)
+
+    
+
+    st.markdown("")
+
+    st.subheader("Use Cases Being Tackled In This Platform")
+
+    st.markdown("<ul>\
+            <li style='font-size:20px;font-family:helvetica;'>Loan Default Prediction</li>\
+            <li style='font-size:20px;font-family:helvetica;'>Churn Prediction</li>\
+            <li style='font-size:20px;font-family:helvetica;'>Fraud Detection</li>\
+            <li style='font-size:20px;font-family:helvetica;'>Stock Price Prediction</li>\
+            <li style='font-size:20px;font-family:helvetica;'>Asset Valuation</li>\
+        </ul>\
+        </p>",
+        unsafe_allow_html=True)
 
 
 
@@ -114,7 +157,7 @@ if selected == "Loan Defaulting":
                 'pastDue_90':[due_90days],'Age':[age],'Emp_type':[empType],'Gender':[gender]}
                 data = pd.DataFrame.from_dict(data)
 
-                loaded_model2 = load_model('data/Default_model2')
+                loaded_model2 = load_model('Loan_default/models/Default_model2')
                 pred_data = predict_model(loaded_model2, data=data)
                 pred_data.rename(columns={"Label":"PredictedDefaulter","Score":"PredictionConfidence"},inplace=True)
 
@@ -161,7 +204,7 @@ if selected == "Loan Defaulting":
             if st.button('Submit'):
                 st.markdown("____")
                 st.subheader("Loan Default Prediction")
-                loaded_model = load_model("data/default_model")
+                loaded_model = load_model("Loan_default/models/default_model")
                 pred_df = predict_model(loaded_model, data=df)
                 pred_df.rename(columns={"Label":"PredictedDefaulter","Score":"PredictionConfidence"},inplace=True)
                 pred_df['Target'] = pred_df["PredictedDefaulter"]
@@ -254,7 +297,7 @@ if selected == "Churn Prediction":
                 'IsActiveMember':[isActive],'HasCrCard':[hasCrCard]}
                 data = pd.DataFrame.from_dict(data)
 
-                loaded_model3 = load_model('data/churn_model1')
+                loaded_model3 = load_model('Churn/models/churn_model1')
                 pred_data = predict_model(loaded_model3, data=data)
                 pred_data.rename(columns={"Label":"PredictedChurn","Score":"PredictionConfidence"},inplace=True)
 
@@ -301,7 +344,7 @@ if selected == "Churn Prediction":
             if st.button('Submit'):
                 st.markdown("____")
                 st.subheader("E-commerce Churn Prediction")
-                loaded_model = load_model("data/finance_churn_model2")
+                loaded_model = load_model("Churn/models/finance_churn_model2")
                 pred_df = predict_model(loaded_model, data=df)
                 pred_df.rename(columns={"Label":"PredictedChurn","Score":"PredictionConfidence"},inplace=True)
                 pred_df['Target'] = pred_df["PredictedChurn"]
