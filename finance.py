@@ -168,7 +168,7 @@ if selected == "Loan Defaulting":
                 col1,col2,col3 = st.columns([1,0.7,3])
                 with col1:
                     st.markdown("<p style='font-size:1.8em;font-weight:bold;color:#F35106'>Client ID :</p>",unsafe_allow_html=True)
-                    st.markdown("<p style='font-size:1.8em;font-weight:bold;color:#F35106'>Churn : </p>",unsafe_allow_html=True)
+                    st.markdown("<p style='font-size:1.8em;font-weight:bold;color:#F35106'>Default : </p>",unsafe_allow_html=True)
                     st.markdown("<p style='font-size:1.8em;font-weight:bold;color:#F35106'>Probability : </p>",unsafe_allow_html=True)
                 with col2:
                     st.subheader(ID)
